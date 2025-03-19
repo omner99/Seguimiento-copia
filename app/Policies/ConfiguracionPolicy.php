@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\Configuracion;
+use App\Models\Usuario;
+use Illuminate\Auth\Access\Response;
+
+class ConfiguracionPolicy
+{
+    /**
+     * Determine whether the user can view any models.
+     */
+    public function viewAny(Usuario $actual): bool
+    {
+        //
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     */
+    public function view(Usuario $actual, Configuracion $configuracion): bool
+    {
+        if ($actual->usa_type == "App\Models\Coordinador"  ) return true;
+        return false;
+    }
+
+    /**
+     * Determine whether the user can create models.
+     */
+    public function create(Usuario $actual): bool
+    {
+        if ($actual->usa_type == "App\Models\Coordinador"  ) return true;
+        return false;
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     */
+    public function update(Usuario $actual, Configuracion $configuracion): bool
+    {
+        if ($actual->usa_type == "App\Models\Coordinador"  ) return true;
+        return false;
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function delete(Usuario $actual, Configuracion $configuracion): bool
+    {
+        if ($actual->usa_type == "App\Models\Coordinador"  ) return true;
+        return false;
+    }
+
+    /**
+     * Determine whether the user can restore the model.
+     */
+    public function restore(Usuario $actual, Configuracion $configuracion): bool
+    {
+        //
+    }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     */
+    public function forceDelete(Usuario $actual, Configuracion $configuracion): bool
+    {
+        //
+    }
+}

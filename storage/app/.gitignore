@@ -1,0 +1,6 @@
+*
+!public/
+!public/estilos.css
+!public/img/
+!public/img/*
+!.gitignore
